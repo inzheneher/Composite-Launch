@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+    <extension point="org.eclipse.debug.core.launchConfigurationTypes">
+  		<launchConfigurationType
+			id="com.melnikov.composite.plugin"
+			delegate="com.melnikov.composite.plugin.CompositeLaunchConfigurationDelegate"
+			modes="run,debug"
+			name="Composite Launch">
+		</launchConfigurationType>
+ 	</extension>
+    <extension
+          point="org.eclipse.debug.ui.launchConfigurationTabGroups">
+       <launchConfigurationTabGroup
+             class="com.melnikov.composite.plugin.CompositeLaunchConfigurationTabGroup"
+             id="com.melnikov.composite.plugin.CompositeTabGroup"
+             type="com.melnikov.composite.plugin">
+       </launchConfigurationTabGroup>
+    </extension>
+    <extension
+          point="org.eclipse.debug.ui.launchConfigurationTypeImages">
+       <launchConfigurationTypeImage
+             configTypeID="com.melnikov.composite.plugin"
+             icon="icons/t.ico"
+             id="comp.launching.image">
+       </launchConfigurationTypeImage>
+    </extension>
+</plugin>
