@@ -13,7 +13,7 @@ public class CompositeLaunchConfigurationTabGroup extends
 			ILaunchConfigurationDialog dialog, 
 			String mode) {
 		setTabs(new ILaunchConfigurationTab[] {
-				new CompositeTab(),
+				new CompositeLaunchConfigurationTab(),
 				new CommonTab()
 		});
 	}

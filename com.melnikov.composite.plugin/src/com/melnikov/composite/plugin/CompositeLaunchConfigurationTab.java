@@ -22,7 +22,7 @@ import org.eclipse.swt.layout.*;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Group;
 
-public class CompositeTab extends AbstractLaunchConfigurationTab {
+public class CompositeLaunchConfigurationTab extends AbstractLaunchConfigurationTab {
 
 	public static final String COMP_TAB_NAME = "Launch Configurations";
 	public static final String COMP_TAB_CONFIGURATIONS_LIST_NAME = "Select launching configurations:";
@@ -53,7 +53,7 @@ public class CompositeTab extends AbstractLaunchConfigurationTab {
 			public void checkStateChanged(CheckStateChangedEvent event) {
 				((ILaunchConfigurationTreeNode) event.getElement()).setCheckState(event.getChecked());
 				((CheckboxTreeViewer) event.getCheckable()).refresh(true);
-				CompositeTab.this.updateLaunchConfigurationDialog();
+				CompositeLaunchConfigurationTab.this.updateLaunchConfigurationDialog();
 			}
 		});
 		configurationViewer.setAutoExpandLevel(2);
