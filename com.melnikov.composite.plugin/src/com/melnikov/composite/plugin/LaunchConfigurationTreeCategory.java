@@ -96,9 +96,4 @@ class LaunchConfigurationTreeCategory implements ILaunchConfigurationTreeNode {
 			item.setCheckState(state);
 		}
 	}
-
-	@Override
-	public boolean hasSelectedChildren() {
-		return hasChildren() && isChecked();
-	}
 };

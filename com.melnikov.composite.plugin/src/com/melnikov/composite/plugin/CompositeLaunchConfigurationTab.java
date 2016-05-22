@@ -1,7 +1,6 @@
 package com.melnikov.composite.plugin;
 
 import java.util.ArrayList;
-import java.util.List;
 
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.debug.core.DebugPlugin;
@@ -29,6 +28,7 @@ public class CompositeLaunchConfigurationTab extends AbstractLaunchConfiguration
 	
 	private LaunchConfigurationCollection launchCollection;
 	private CheckboxTreeViewer configurationViewer;
+//	private CheckboxListViewer configurationViewer;
 
 	@Override
 	public void createControl(Composite parent) {
@@ -42,8 +42,14 @@ public class CompositeLaunchConfigurationTab extends AbstractLaunchConfiguration
 		group.setLayout(new GridLayout(1, true));
 		group.setLayoutData(new GridData(GridData.FILL_BOTH));
 		group.setText(COMP_TAB_CONFIGURATIONS_LIST_NAME);
+/*		
+		configurationViewer = new CheckboxTableViewer(group, SWT.BORDER_SOLID);
+		configurationViewer.getList().setLayoutData(new GridData(GridData.FILL_BOTH));
+		configurationViewer.getList().setFont(parent.getFont());
+		configurationViewer.setLabelProvider(new LaunchConfigurationTreeLabelProvider());
 		
-		configurationViewer = new CheckboxTreeViewer(group, SWT.BORDER);
+*/		
+		configurationViewer = new CheckboxTreeViewer(group, SWT.BORDER_SOLID);
 		configurationViewer.getTree().setLayoutData(new GridData(GridData.FILL_BOTH));
 		configurationViewer.getTree().setFont(parent.getFont());
 		configurationViewer.setContentProvider(new LaunchConfigurationTreeContentProvider());
@@ -56,7 +62,7 @@ public class CompositeLaunchConfigurationTab extends AbstractLaunchConfiguration
 				CompositeLaunchConfigurationTab.this.updateLaunchConfigurationDialog();
 			}
 		});
-		configurationViewer.setAutoExpandLevel(2);
+		configurationViewer.setAutoExpandLevel(0);
 	}
 
 	@Override
@@ -71,7 +77,7 @@ public class CompositeLaunchConfigurationTab extends AbstractLaunchConfiguration
 		}
 
 		try {
-			launchCollection.setSelectedLaunchConfigrations((List<String>) configuration.getAttribute(
+			launchCollection.setSelectedLaunchConfigrations(configuration.getAttribute(
 					CompositeLaunchConfigurationDelegate.LIST_OF_CONFIGURATIONS,
 					new ArrayList<String>()));
 		} catch (CoreException e) {				

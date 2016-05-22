@@ -15,8 +15,7 @@ public class CompositeLaunchConfigurationDelegate implements ILaunchConfiguratio
 
 	public static final String TYPE_OF_CONFIGURATIONS = "com.melnikov.composite.plugin";
 	public static final String LIST_OF_CONFIGURATIONS = "Configurations";
-	
-	
+		
 	private List<ILaunchConfiguration> getSupportedConfigs(List<String> configNames, String mode) {
 
         ILaunchManager manager = DebugPlugin.getDefault().getLaunchManager();
@@ -45,11 +44,11 @@ public class CompositeLaunchConfigurationDelegate implements ILaunchConfiguratio
 		List<String> configNames = configuration.getAttribute(
 				CompositeLaunchConfigurationDelegate.LIST_OF_CONFIGURATIONS,
 				new ArrayList<String>());
-		for (ILaunchConfiguration executedConfiguration: getSupportedConfigs(configNames, mode)) {
-			if(executedConfiguration.equals(configuration)) {
+		for (ILaunchConfiguration configToLaunch: getSupportedConfigs(configNames, mode)) {
+			if(configToLaunch.equals(configuration)) {
 				continue;
 			}
-			executedConfiguration.launch(mode, monitor);
+			configToLaunch.launch(mode, monitor);
 		}
 
 	}

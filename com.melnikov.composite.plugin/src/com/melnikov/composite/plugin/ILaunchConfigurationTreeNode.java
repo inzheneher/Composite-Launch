@@ -6,7 +6,7 @@ interface ILaunchConfigurationTreeNode {
 	ILaunchConfigurationTreeNode[] getChildren();
 	ILaunchConfigurationTreeNode getParent();
 	boolean hasChildren();
-	boolean hasSelectedChildren();	
+//	boolean hasSelectedChildren();	
 
 	Image getImage();
 	String getText();

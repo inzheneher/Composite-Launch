@@ -78,9 +78,4 @@ class LaunchConfigurationTreeItem implements ILaunchConfigurationTreeNode {
 	public void setCheckState(boolean state) {
 		checked = state;
 	}
-
-	@Override
-	public boolean hasSelectedChildren() {
-		return false;
-	}
 };
